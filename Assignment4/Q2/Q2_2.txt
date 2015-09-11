@@ -1,0 +1,51 @@
+object Reco{
+def main(args: Array[String]) {
+val UserId = "20"
+val usrfile = sc.textFile("/ratings.dat")
+val ratedArr = usrfile.toArray
+val ratedList = new scala.collection.mutable.MutableList[String]
+for(i <- 0 until ratedArr.length) {
+val rateLine = ratedArr(i).split("::")
+if(rateLine(0) == UserId && rateLine(2) == "3") {
+ratedList += rateLine(1)
+}
+}
+val similarity = sc.textFile("/scr130130/indicator-matrix/part-00000")
+val itemArr = similarity.toArray
+val itemMap = new scala.collection.mutable.HashMap[String,List[String]].withDefaultValue(Nil)
+for(i <- 0 until itemArr.length){
+val itemLine = itemArr(i).split("\\s+")
+val itemKey = itemLine(0)
+if(itemLine.length > 1){
+val tildeSplit = itemLine(1).split("~")
+for( j <- 0 until tildeSplit.length){
+val moviefileSplit = tildeSplit(j).split(":")
+val moviefileId = moviefileSplit(0)
+itemMap(itemKey) ::= moviefileId
+}
+}
+}
+val moviefile = sc.textFile("/scr130130/movies.dat")
+val movieMap = new scala.collection.mutable.HashMap[String,String]
+val movieArr=moviefile.toArray
+for(i <- 0 until movieArr.length){
+val moviefileLine = movieArr(i).split("::") 
+movieMap(moviefileLine(0)) = moviefileLine(1)
+}
+for(i <- 0 until ratedList.length){
+val moviefile = ratedList(i)
+if(itemMap.contains(moviefile)){
+println(ratedList(i)+":"+movieMap(moviefile))
+for(i <- 0 until itemMap(moviefile).length){
+if(i !=0){
+print(","+itemMap(moviefile)(i)+":"+movieMap(itemMap(moviefile)(i)))
+}
+else
+print(itemMap(moviefile)(i)+":"+movieMap(itemMap(moviefile)(i)))
+}
+println("")
+println("")
+}
+}
+}
+}

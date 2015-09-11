@@ -1,0 +1,21 @@
+
+
+
+FROM tblmonth
+INSERT OVERWRITE TABLE jan
+SELECT movieid, title , genres 
+where month='January'
+INSERT OVERWRITE TABLE feb
+SELECT movieid, title , genres 
+where month='February'
+INSERT OVERWRITE TABLE mar
+SELECT movieid, title , genres 
+where month='March';
+
+
+create table jan(movieid int, title string, genre string)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '\;';
+create table feb(movieid int, title string, genre string)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '\;';
+create table mar(movieid int, title string, genre string)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '\;';

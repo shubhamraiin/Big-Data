@@ -1,0 +1,5 @@
+select m.MovieID, AVG(r.Rating) as Rat, genre
+from ratings r join movies m on(r.MovieID=m.MovieID) join users u on(u.UserID=r.UserID)
+where (genre like '%Comedy%' OR genre like '%Drama%') and gender='M'
+group by m.movieID,genre
+having Rat>=4.5 and Rat <=4.6;

@@ -1,0 +1,8 @@
+
+
+select m.MovieID, AVG(r.Rating) as Rat
+from ratings r join movies m on(r.MovieID=m.MovieID)
+where genre like '%Comedy%'
+group by m.movieID
+order by Rat desc
+limit 11;

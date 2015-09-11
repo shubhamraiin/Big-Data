@@ -1,0 +1,1 @@
+mahout spark-itemsimilarity --input /ratings.dat --output /scr130130/ --maxSimilaritiesPerItem 5 --inDelim "::" --itemIDColumn 1 --filterColumn 2 --filter1 "3" --elementDelim "~"

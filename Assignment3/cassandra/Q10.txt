@@ -1,0 +1,63 @@
+# Creating Keyspace
+	CREATE KEYSPACE scr130130 WITH placement_strategy = 'org.apache.cassandra.locator.SimpleStrategy'
+	AND strategy_options = {replication_factor:1};
+
+#	Use Keyspace
+	USE scr130130;
+
+# 1.Create column family named cf.
+
+CREATE COLUMN FAMILY cf
+WITH comparator = UTF8Type
+AND key_validation_class = UTF8Type
+AND column_metadata = [
+{column_name: userid, validation_class: Int32Type}
+{column_name: gender, validation_class: UTF8Type}
+{column_name: age, validation_class: Int32Type}
+{column_name: occupation, validation_class: Int32Type}
+{column_name: zipcode, validation_class: Int32Type}
+];
+ -----------------------------------------------------------------------------
+ 
+ #2.Insertion into column family.
+ i)
+ SET cf ['13'] ['userid'] = '13';
+ SET cf ['13'] ['gender'] = 'F';
+ SET cf ['13'] ['age'] = '51';
+ SET cf ['13'] ['occupation'] = '1';
+ SET cf ['13'] ['zipcode'] = '93334"';
+
+ ii)
+ SET cf ['1471'] ['userid'] = '1471';
+ SET cf ['1471'] ['gender'] = 'F';
+ SET cf ['1471'] ['age'] = '31';
+ SET cf ['1471'] ['occupation'] = '17';
+ SET cf ['1471'] ['zipcode'] = '11116';
+
+ iii)
+ SET cf ['1496'] ['userid'] = '1496' WITH ttl=300;
+ SET cf ['1496'] ['gender'] = 'F' WITH ttl=300;
+ SET cf ['1496'] ['age'] = '31' WITH ttl=300;
+ SET cf ['1496'] ['occupation'] = '17' WITH ttl=300;
+ SET cf ['1496'] ['zipcode'] = '94118' WITH ttl=300;
+
+-------------------------------------------------------------------------------
+
+#3.
+
+i)
+GET cf ['13'] ['gender'];
+GET cf ['13'] ['occupation'];
+
+ii)
+LIST cf;
+
+iii)
+DEL cf ['1471']['gender'];
+
+iv)
+DROP COLUMN FAMILY cf;
+
+-----------------------------------------------------------------------------------
+#4.
+DESCRIBE scr130130;

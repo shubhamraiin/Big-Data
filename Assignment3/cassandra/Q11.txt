@@ -1,0 +1,31 @@
+1.
+USE scr130130;
+CREATE TABLE user (
+userid int ,
+gender varchar,
+age int,
+occupation int,
+zipcode varchar,
+PRIMARY KEY(userid) );
+
+-----------------------------------------------------------------------------------
+ 2.
+ COPY user (userid,gender,age,occupation,zipcode) FROM 'cassandra-input/users.dat' WITH DELIMITER = ':';
+
+-----------------------------------------------------------------------------------
+
+3.
+INSERT INTO user (userid, gender, age, occupation, zipcode)
+VALUES (6041,'M',32,6,'11120');
+
+-----------------------------------------------------------------------------------
+4.
+SELECT * FROM user WHERE userid = 6020;
+
+-----------------------------------------------------------------------------------
+5.
+ TRUNCATE user;
+
+ ----------------------------------------------------------------------------------
+6.
+ DROP TABLE scr130130.user;

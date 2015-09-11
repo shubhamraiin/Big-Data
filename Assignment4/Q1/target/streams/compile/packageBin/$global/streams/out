@@ -1,0 +1,21 @@
+[0m[[0minfo[0m] [0mPackaging C:\Program Files (x86)\spark-0.9.1\bin\Q1\target\scala-2.10\simple-project_2.10-1.0.jar ...[0m
+[0m[[0mdebug[0m] [0mInput file mappings:[0m
+[0m[[0mdebug[0m] [0m	KMeans.class[0m
+[0m[[0mdebug[0m] [0m	  C:\Program Files (x86)\spark-0.9.1\bin\Q1\target\scala-2.10\classes\KMeans.class[0m
+[0m[[0mdebug[0m] [0m	KMeans$$anonfun$3.class[0m
+[0m[[0mdebug[0m] [0m	  C:\Program Files (x86)\spark-0.9.1\bin\Q1\target\scala-2.10\classes\KMeans$$anonfun$3.class[0m
+[0m[[0mdebug[0m] [0m	KMeans$$anonfun$2.class[0m
+[0m[[0mdebug[0m] [0m	  C:\Program Files (x86)\spark-0.9.1\bin\Q1\target\scala-2.10\classes\KMeans$$anonfun$2.class[0m
+[0m[[0mdebug[0m] [0m	KMeans$$anonfun$1.class[0m
+[0m[[0mdebug[0m] [0m	  C:\Program Files (x86)\spark-0.9.1\bin\Q1\target\scala-2.10\classes\KMeans$$anonfun$1.class[0m
+[0m[[0mdebug[0m] [0m	KMeans$$anonfun$Classification$1.class[0m
+[0m[[0mdebug[0m] [0m	  C:\Program Files (x86)\spark-0.9.1\bin\Q1\target\scala-2.10\classes\KMeans$$anonfun$Classification$1.class[0m
+[0m[[0mdebug[0m] [0m	KMeans$$anonfun$5.class[0m
+[0m[[0mdebug[0m] [0m	  C:\Program Files (x86)\spark-0.9.1\bin\Q1\target\scala-2.10\classes\KMeans$$anonfun$5.class[0m
+[0m[[0mdebug[0m] [0m	KMeans$.class[0m
+[0m[[0mdebug[0m] [0m	  C:\Program Files (x86)\spark-0.9.1\bin\Q1\target\scala-2.10\classes\KMeans$.class[0m
+[0m[[0mdebug[0m] [0m	KMeans$$anonfun$6.class[0m
+[0m[[0mdebug[0m] [0m	  C:\Program Files (x86)\spark-0.9.1\bin\Q1\target\scala-2.10\classes\KMeans$$anonfun$6.class[0m
+[0m[[0mdebug[0m] [0m	KMeans$$anonfun$4.class[0m
+[0m[[0mdebug[0m] [0m	  C:\Program Files (x86)\spark-0.9.1\bin\Q1\target\scala-2.10\classes\KMeans$$anonfun$4.class[0m
+[0m[[0minfo[0m] [0mDone packaging.[0m

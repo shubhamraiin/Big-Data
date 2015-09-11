@@ -1,0 +1,8 @@
+CREATE TABLE tblmonth(MovieId INT, Title STRING, Genres STRING) partitioned by (month STRING)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '\;';
+
+LOAD DATA LOCAL INPATH 'inputHw3/January.dat' INTO TABLE tblmonth Partition(month = 'January');
+LOAD DATA LOCAL INPATH 'inputHw3/February.dat' INTO TABLE tblmonth Partition(month = 'February');
+LOAD DATA LOCAL INPATH 'inputHw3/March.dat' INTO TABLE tblmonth Partition(month = 'March');
+
+select * from tblmonth where month= 'March';

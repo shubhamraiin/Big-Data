@@ -1,0 +1,12 @@
+add jar PoojaHive.jar;
+
+DROP TEMPORARY FUNCTION IF EXISTS FORMAT_GENRE;
+CREATE TEMPORARY FUNCTION FORMAT_GENRE as 'HiveFormatGenre';
+
+DROP TABLE IF EXISTS movies;
+
+CREATE TABLE movies(movieID INT, title String, genre STRING)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ':'; 
+LOAD DATA LOCAL INPATH 'movies1.dat' INTO TABLE movies; 
+
+select movieid, title, FORMAT_GENRE(genre) from movies;

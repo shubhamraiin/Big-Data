@@ -1,0 +1,240 @@
+           /scratch disk space can be used for temporary files.
+               All files will be erased on a regular basis (Sunday 0300).
+Sourcing /usr/local/etc/skel/global/profile
+{cslinux1:~} ssh cs6360.utdallas.edu
+
+                 Department of Computer Science
+                 University of Texas at Dallas
+
+  Pursuant to Texas Administrative Code 202:
+
+  (1) Unauthorized use is prohibited;
+
+  (2) Usage may be subject to security testing and monitoring;
+
+  (3) Misuse is subject to criminal prosecution; and
+
+  (4) No expectation of privacy except as otherwise provided by
+      applicable privacy laws.
+
+
+scr130130@cs6360.utdallas.edu's password:
+Last login: Tue Mar 31 16:48:20 2015 from cslinux1.utdallas.edu
+Sourcing /usr/local/etc/skel/global/profile
+{cs6360:~} cd /usr/local/apache-cassandra-2.0.5/bin
+{cs6360:/usr/local/apache-cassandra-2.0.5/bin}
+{cs6360:/usr/local/apache-cassandra-2.0.5/bin} ls
+cassandra              debug-cql.bat     sstableloader.bat
+cassandra.bat          json2sstable      sstablemetadata.bat
+cassandra-cli          json2sstable.bat  sstablescrub
+cassandra-cli.bat      nodetool          sstablescrub.bat
+cassandra.in.sh        nodetool.bat      sstablesplit
+cassandra-shuffle      sstable2json      sstablesplit.bat
+cassandra-shuffle.bat  sstable2json.bat  sstableupgrade
+cqlsh                  sstablekeys       sstableupgrade.bat
+cqlsh.bat              sstablekeys.bat   stop-server
+debug-cql              sstableloader
+{cs6360:/usr/local/apache-cassandra-2.0.5/bin} cassandra-cli -host csac0
+-bash: cassandra-cli: command not found
+{cs6360:/usr/local/apache-cassandra-2.0.5/bin} cd0
+-bash: cd0: command not found
+{cs6360:/usr/local/apache-cassandra-2.0.5/bin} cd
+{cs6360:~} /usr/local/apache-cassandra-2.0.5/bin/cassandra-cli --host csac0
+Connected to: "Khan Cluster" on csac0/9160
+Welcome to Cassandra CLI version 2.0.5
+
+The CLI is deprecated and will be removed in Cassandra 3.0.  Consider migrating to cqlsh.
+CQL is fully backwards compatible with Thrift data; see http://www.datastax.com/dev/blog/thrift-to-cql3
+
+Type 'help;' or '?' for help.
+Type 'quit;' or 'exit;' to quit.
+
+[default@unknown] ls
+...
+...     ;
+Syntax error at position 0: no viable alternative at input 'ls'
+[default@unknown]
+[default@unknown] USE scr130130
+...     ;
+Authenticated to keyspace: scr130130
+[default@scr130130] USE scr130130 ;
+Authenticated to keyspace: scr130130
+[default@scr130130] describe columnfamilies;
+
+WARNING: CQL3 tables are intentionally omitted from 'describe' output.
+See https://issues.apache.org/jira/browse/CASSANDRA-4377 for details.
+
+Sorry, no Keyspace nor (non-CQL3) ColumnFamily was found with name: columnfamilies (if this is a CQL3 table, you should use cqlsh instead)
+[default@scr130130] describe columnfamily users;
+Syntax error at position 22: missing EOF at 'users'
+[default@scr130130] describe users;
+
+WARNING: CQL3 tables are intentionally omitted from 'describe' output.
+See https://issues.apache.org/jira/browse/CASSANDRA-4377 for details.
+
+Keyspace: users:
+  Replication Strategy: org.apache.cassandra.locator.SimpleStrategy
+  Durable Writes: true
+    Options: [replication_factor:1]
+  Column Families:
+[default@scr130130] CREATE COLUMN FAMILY users
+...     WITH comparator = UTF8Type
+...     AND key_validation_class=UTF8Type
+...     AND column_metadata = [
+...     {column_name: full_name, validation_class: UTF8Type}
+...     {column_name: email, validation_class: UTF8Type}
+...     {column_name: state, validation_class: UTF8Type}
+...     {column_name: gender, validation_class: UTF8Type}
+...     {column_name: birth_year, validation_class: LongType}
+... {CREATE COLUMN FAMILY users}
+...     WITH comparator = UTF8Type
+...     AND key_validation_class=UTF8Type
+...     AND column_metadata = [
+...     {column_name: UserID, validation_class: UTF8Type}
+...     {column_name: Gender, validation_class: UTF8Type}
+...     {column_name: Age, validation_class: UTF8Type}
+...     {column_name: Occupation, validation_class: UTF8Type}
+...     {column_name: Zip-code, validation_class: UTF8Type}
+...     ];
+Syntax error at position 368: no viable alternative at input 'CREATE'
+[default@scr130130] CREATE COLUMN FAMILY users
+...     WITH comparator = UTF8Type
+...     AND key_validation_class=UTF8Type
+...     AND column_metadata = [
+...     {column_name: UserID, validation_class: UTF8Type}
+...     {column_name: Gender, validation_class: UTF8Type}
+...     {column_name: Age, validation_class: UTF8Type}
+...     {column_name: Occupation, validation_class: UTF8Type}
+...     {column_name: Zip-code, validation_class: UTF8Type}
+...     ];
+Cannot add already existing column family "users" to keyspace "scr130130"
+[default@scr130130] DESCRIBE USERS;
+
+WARNING: CQL3 tables are intentionally omitted from 'describe' output.
+See https://issues.apache.org/jira/browse/CASSANDRA-4377 for details.
+
+Keyspace: users:
+  Replication Strategy: org.apache.cassandra.locator.SimpleStrategy
+  Durable Writes: true
+    Options: [replication_factor:1]
+  Column Families:
+[default@scr130130] DROP USERS;
+Syntax error at position 5: no viable alternative at input 'USERS'
+[default@scr130130] DROP COLUMNFAMILY USERS;
+Syntax error at position 5: no viable alternative at input 'COLUMNFAMILY'
+[default@scr130130] DROP COLUMN FAMILY USERS;
+6123f818-29bc-3342-a227-cb743e03345d
+[default@scr130130] CREATE COLUMN FAMILY users
+...     WITH comparator = UTF8Type
+...     AND key_validation_class=UTF8Type
+...     AND column_metadata = [
+...     {column_name: UserID, validation_class: UTF8Type}
+...     {column_name: Gender, validation_class: UTF8Type}
+...     {column_name: Age, validation_class: UTF8Type}
+...     {column_name: Occupation, validation_class: UTF8Type}
+...     {column_name: Zip-code, validation_class: UTF8Type}
+...     ];
+53ed2f20-d642-31c3-8a23-1729943f3853
+[default@scr130130] SET users['13']['UserID']='13';
+Value inserted.
+Elapsed time: 11 msec(s).
+[default@scr130130] SET users['13']['Gender']='F';
+Value inserted.
+Elapsed time: 1.95 msec(s).
+[default@scr130130] SET users['13']['Age']='51';
+Value inserted.
+Elapsed time: 2.1 msec(s).
+[default@scr130130] SET users['13']['Occupation']='1';
+Value inserted.
+Elapsed time: 2.22 msec(s).
+[default@scr130130] SET users['13']['Zip-code']='93334"';
+Value inserted.
+Elapsed time: 3.82 msec(s).
+[default@scr130130] SET users['13']['Zip-code']='93334"';
+Value inserted.
+Elapsed time: 1.99 msec(s).
+[default@scr130130] SET users['13']['Zip-code']='93334"';
+Value inserted.
+Elapsed time: 1.82 msec(s).
+[default@scr130130] SET users['13']['Zip-code']='93334';
+Value inserted.
+Elapsed time: 2.0 msec(s).
+[default@scr130130]
+[default@scr130130] SET users['1471']['UserID']='1471';
+Value inserted.
+Elapsed time: 41 msec(s).
+[default@scr130130] SET users['1471']['Gender']='F';
+Value inserted.
+Elapsed time: 1.23 msec(s).
+[default@scr130130] SET users['1471']['Age']='31';
+Value inserted.
+Elapsed time: 2.28 msec(s).
+[default@scr130130] SET users['1471']['Occupation']='17';
+Value inserted.
+Elapsed time: 1.39 msec(s).
+[default@scr130130] SET users['1471']['Zip-code']='11116';
+Value inserted.
+Elapsed time: 2.01 msec(s).
+[default@scr130130]
+
+[default@scr130130] SET users['1496']['UserID']='1496' with ttl=300;
+Value inserted.
+Elapsed time: 39 msec(s).
+[default@scr130130] SET users['1496']['Gender']='F' with ttl=300;
+Value inserted.
+Elapsed time: 2.23 msec(s).
+[default@scr130130] SET users['1496']['Age']='31' with ttl=300;
+Value inserted.
+Elapsed time: 2.13 msec(s).
+[default@scr130130] SET users['1496']['Occupation']='17' with ttl=300;
+Value inserted.
+Elapsed time: 2.35 msec(s).
+[default@scr130130] SET users['1496']['Zip-code']='94118' with ttl=300;
+Value inserted.
+Elapsed time: 2.06 msec(s)
+ GET users[utf8('13')][utf8('Occupation')];
+=> (name=Occupation, value=1, timestamp=1427861100122000)
+Elapsed time: 48 msec(s).
+GET users[utf8('13')][utf8('Gender')];
+=> (name=Gender, value=F, timestamp=1427861083036000)
+Elapsed time: 75 msec(s).
+[default@scr130130] LIST users ;
+Using default limit of 100
+Using default cell limit of 100
+-------------------
+RowKey: 1496
+-------------------
+RowKey: 13
+=> (name=Age, value=51, timestamp=1427861091936000)
+=> (name=Gender, value=F, timestamp=1427861083036000)
+=> (name=Occupation, value=1, timestamp=1427861100122000)
+=> (name=UserID, value=13, timestamp=1427861071289000)
+=> (name=Zip-code, value=93334, timestamp=1427861227473000)
+-------------------
+RowKey: 1471
+=> (name=Age, value=31, timestamp=1427861442943000)
+=> (name=Gender, value=F, timestamp=1427861435265000)
+=> (name=Occupation, value=17, timestamp=1427861449960000)
+=> (name=UserID, value=1471, timestamp=1427861426381000)
+=> (name=Zip-code, value=11116, timestamp=1427861457746000)
+
+3 Rows Returned.
+Elapsed time: 364 msec(s).
+[default@scr130130] DEL users ['1471']['Gender'];
+cell removed.
+Elapsed time: 19 msec(s)
+
+ DROP COLUMN FAMILY users;
+cbe6cca9-f03a-3627-b5ab-ba30e1ef4133
+
+ DESCRIBE scr130130 ;
+
+WARNING: CQL3 tables are intentionally omitted from 'describe' output.
+See https://issues.apache.org/jira/browse/CASSANDRA-4377 for details.
+
+Keyspace: scr130130:
+  Replication Strategy: org.apache.cassandra.locator.SimpleStrategy
+  Durable Writes: true
+    Options: [replication_factor:1]
+  Column Families:
+
